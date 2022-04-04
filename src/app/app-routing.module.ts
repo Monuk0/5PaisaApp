@@ -5,6 +5,7 @@ import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation
 import { CloggerComponent } from './clogger/clogger.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorsComponent } from './errors/errors.component';
+import { IpoComponent } from './ipo/ipo.component';
 import { LoginWithOptionComponent } from './login/login-with-option/login-with-option.component';
 import { LoginWithOtpComponent } from './login/login-with-otp/login-with-otp.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'bottomNavigation',
+    path: 'bottom-navigation',
     component: BottomNavigationComponent,
   },
   {
@@ -36,15 +37,23 @@ const routes: Routes = [
     component: ErrorsComponent,
   },
   {
+    path: 'ipo',
+    component: IpoComponent,
+  },
+  {
+    path: '',
+    component: ErrorsComponent,
+  },
+  {
     path: 'login',
     children: [
       { path: '', component: LoginComponent },
-      { path: 'loginWithOtion', component: LoginWithOptionComponent },
-      { path: 'loginWithOtp', component: LoginWithOtpComponent },
+      { path: 'login-with-option', component: LoginWithOptionComponent },
+      { path: 'login-with-otp', component: LoginWithOtpComponent },
     ],
   },
   {
-    path: 'bottomNavigation',
+    path: 'bottom-navigation',
     loadChildren: () =>
       import('./bottom-navigation/bottom-navigation.module').then(
         (m) => m.BottomNavigationModule
